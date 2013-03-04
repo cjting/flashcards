@@ -84,7 +84,8 @@ function onConnectSuccessful(db) {
 
     app.post('/card', function(req,res) {
         var card = {};
-        //card._id = req.body.id;
+        card._id = req.body.id;
+        card.userid = req.body.userid;
         card.question = req.body.question;
         card.answer = req.body.answer;
         card.is_public = false;
@@ -109,6 +110,7 @@ function onConnectSuccessful(db) {
         var card = {};
         var id = req.params.id;
 
+        if(req.body.userid) { card.userid = req.body.userid; }
         if(req.body.question) { card.question = req.body.question; }
         if(req.body.answer) { card.answer = req.body.answer; }
         if(req.body.is_public) { card.is_public = req.body.is_public; }
