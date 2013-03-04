@@ -107,6 +107,7 @@ var apis = {
         return deferred;
     },
 
+    //TODO: Change to do an upsert instead of an update
     updateCard : function(db, id, card) {
         var deferred = Deferred();
 
